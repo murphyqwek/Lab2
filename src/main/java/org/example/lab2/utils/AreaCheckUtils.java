@@ -12,7 +12,7 @@ public class AreaCheckUtils {
     }
 
     public boolean isHit() {
-        return checkSquare() && checkTriangle() && checkQuadrant();
+        return checkSquare() || checkTriangle() || checkQuadrant();
     }
 
     private boolean checkQuadrant() {

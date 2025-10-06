@@ -18,7 +18,7 @@ public class ResultBean {
         this.hit = hit;
     }
 
-    public boolean isHit() {
+    public boolean getHit() {
         return hit;
     }
 

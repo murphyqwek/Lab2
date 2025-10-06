@@ -1,5 +1,7 @@
 package org.example.lab2;
 
+import org.example.lab2.beans.UserValueBean;
+
 public class Validation {
     String xValue;
     String yValue;
@@ -11,16 +13,14 @@ public class Validation {
         this.rValue = rValue;
     }
 
-    public Double getXValue() {
-        return getDoubleValue(xValue);
-    }
+    public UserValueBean getUserValueBean() {
+        UserValueBean userValueBean = new UserValueBean();
 
-    public Double getYValue() {
-        return getDoubleValue(yValue);
-    }
+        userValueBean.setX(getDoubleValue(xValue));
+        userValueBean.setY(getDoubleValue(yValue));
+        userValueBean.setR(getDoubleValue(rValue));
 
-    public Double getRValue() {
-        return getDoubleValue(rValue);
+        return userValueBean;
     }
 
     private Double getDoubleValue(String value) {

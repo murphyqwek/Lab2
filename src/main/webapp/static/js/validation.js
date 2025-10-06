@@ -8,7 +8,7 @@ function checkStringFormat(rawValue) {
 
 
 function checkForNull(value) {
-    return (value === '' || value === null || value === undefined);
+    return !(value === '' || value === null || value === undefined);
 }
 
 

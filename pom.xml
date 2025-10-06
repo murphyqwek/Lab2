@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Lab2</artifactId>
+    <artifactId>ROOT</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Lab2</name>
     <packaging>war</packaging>
@@ -51,6 +51,7 @@
     </dependencies>
 
     <build>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

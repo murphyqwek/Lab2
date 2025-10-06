@@ -1,4 +1,4 @@
-package org.example.lab2;
+package org.example.lab2.utils;
 
 import org.example.lab2.beans.UserValueBean;
 

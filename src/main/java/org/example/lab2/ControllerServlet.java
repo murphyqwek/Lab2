@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.lab2.utils.Validation;
+import org.example.lab2.utils.ValidationResult;
 
 import java.io.IOException;
 

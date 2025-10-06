@@ -1,13 +1,103 @@
+<%@ page import="org.example.lab2.beans.ResultBean" %>
+<%@ page import="org.example.lab2.beans.ResultStorageBean" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>JSP - Hello World</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <title>Lab2</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<!-- Шапка -->
+<div class="header">
+    <div class="part" id="namepart">Стариков Арсений</div>
+    <div class="part" id="labnamepart">Лабораторная работа 2</div>
+    <div class="part" id="variantpart">Вариант: 1704</div>
+</div>
+
+<!-- Контент -->
+<div class="content">
+    <div class="container">
+        <form id="form" action="${pageContext.request.contextPath}/controller" method="POST">
+            <label class="value-label"> Выберите значение X:
+                <select name="xvalue" id="xvalue" required>
+                    <option value="-3" selected>-3</option>
+                    <option value="-2">-2</option>
+                    <option value="-1">-1</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label> <br>
+            <label>Введите Y: <input type="text" name="yvalue" id="yvalue" placeholder="от -3 до 3"></label> <br>
+            <label>Введите R: <input type="text" name="rvalue" id="rvalue" placeholder="от 2 до 5"></label> <br>
+            <input type="submit"></input>
+        </form>
+    </div>
+
+    <div class="container">
+        <canvas id="graph"> </canvas>
+    </div>
+
+    <div class="container">
+        <table>
+            <caption>
+                Результаты попаданий
+            </caption>
+            <thead>
+            <tr>
+                <th scope="col">R</th>
+                <th scope="col">X</th>
+                <th scope="col">Y</th>
+                <th scope="col">Попадание</th>
+                <th scope="col">Время начала</th>
+                <th scope="col">Время выполнения, с.</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                @SuppressWarnings("unchecked")
+                ResultStorageBean storage = (ResultStorageBean) session.getAttribute("resultStorage");
+                ArrayList<ResultBean> results = (storage != null) ? storage.getResultList() : new ArrayList<>();
+                if (results != null && !results.isEmpty()) {
+                    for (ResultBean res: results) {
+            %>
+            <tr>
+                <td><%= res.getUserValueBean().getR() %></td>
+                <td><%= res.getUserValueBean().getX() %></td>
+                <td><%= res.getUserValueBean().getY() %></td>
+                <td><%= res.getHit() ? "Попал" : "Мимо" %></td>
+                <td><%= res.getStartTime() != null ? res.getStartTime() : "" %></td>
+                <td><%=String.format("%.4f",(res.getExecutionTime()/1_000_000.0)) %></td>
+            </tr>
+            <%
+                }
+            }
+            %>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div id="graphPopup" class="popup">
+    <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <p><span id="popupTitle"></span></p>
+        <p><span id="popupResult"></span></p>
+    </div>
+</div>
+<script src="static/js/notificantion.js"></script>
+<script src="static/js/validation.js"></script>
+<script src="static/js/input.js"></script>
+<script src="static/js/sumbitForm.js"></script>
+<script src="static/js/graph.js"></script>
+<script src="static/js/clickGraphHandler.js"></script>
 </body>
 </html>

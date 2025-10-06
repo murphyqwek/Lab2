@@ -1,0 +1,263 @@
+.header {
+    display: flex;
+    width: 100%;
+    height: 7%;
+    background-color: #46c642;
+    border-bottom: 1px solid #4c4c4c;
+}
+
+.part {
+  flex: 1; 
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+}
+
+#namepart {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#labnamepart {
+  text-align: center;
+}
+
+#variantpart {
+  text-align: right;
+  margin-right: 20px;
+}
+
+#graph:hover {
+  cursor: crosshair;
+}
+
+#graph {
+  height: 400px;
+  width: 400px;
+  border: 1px solid #000000; 
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+
+.content {
+  display: flex;
+  width: 100%;
+  height: 93%;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+
+
+.container form {
+  background: white;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #46c642;
+  min-width: 300px;
+}
+
+.container label {
+  display: block;
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.container label:last-of-type {
+  border-bottom: none; 
+}
+
+.container input[type="text"],
+.container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 2px solid #46c642;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+
+.container input[type="text"]:focus,
+.container select:focus {
+  outline: none;
+  border-color: #2a8c27;
+  box-shadow: 0 0 5px rgba(70, 198, 66, 0.5);
+}
+
+.container input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #46c642, #2a8c27);
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+
+.container input[type="submit"]:hover {
+  background: linear-gradient(135deg, #3db239, #247c21);
+  box-shadow: 0 4px 12px rgba(70, 198, 66, 0.4);
+}
+
+
+
+.container table {
+  width: 100%;
+  max-width: 1000px;
+  background: white;
+  border-collapse: collapse;
+  border: 2px solid #46c642;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.container caption {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  padding: 20px;
+  background: linear-gradient(135deg, #46c642, #2a8c27);
+  color: white;
+}
+
+.container thead {
+  background: rgba(70, 198, 66, 0.1);
+}
+
+.container th {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #2a8c27;
+  border-bottom: 2px solid #46c642;
+  font-size: 14px;
+}
+
+.container td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #333;
+}
+
+.container tbody tr {
+  transition: all 0.3s ease;
+}
+.container tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: popupAppear 0.3s;
+}
+
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.popup-close:hover {
+    color: #000;
+}
+
+.popup-content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#popupCoords {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#popupTitle {
+    font-weight: bold;
+}
+
+.popup.success #popupTitle{
+    color: #27ae60;
+}
+
+.popup.fail #popupTitle {
+    color: #e74c3c;
+}
+
+#back-button {
+  margin-top: 5px;
+  min-width: 100px;
+  min-height: 50px;
+  background: linear-gradient(135deg, #46c642, #2a8c27);
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+}
+
+#back-button:hover {
+  background: linear-gradient(135deg, #dbf2da, #d7e7d6);
+  color: black;
+}

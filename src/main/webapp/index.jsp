@@ -61,25 +61,7 @@
             </tr>
             </thead>
             <tbody>
-            <%
-                @SuppressWarnings("unchecked")
-                ResultStorageBean storage = (ResultStorageBean) session.getAttribute("resultStorage");
-                ArrayList<ResultBean> results = (storage != null) ? storage.getResultList() : new ArrayList<>();
-                if (results != null && !results.isEmpty()) {
-                    for (ResultBean res: results) {
-            %>
-            <tr>
-                <td><%= res.getUserValueBean().getR() %></td>
-                <td><%= res.getUserValueBean().getX() %></td>
-                <td><%= res.getUserValueBean().getY() %></td>
-                <td><%= res.getHit() ? "Попал" : "Мимо" %></td>
-                <td><%= res.getStartTime() != null ? res.getStartTime() : "" %></td>
-                <td><%=String.format("%.4f",(res.getExecutionTime()/1_000_000.0)) %></td>
-            </tr>
-            <%
-                }
-            }
-            %>
+
             </tbody>
         </table>
 
@@ -93,7 +75,32 @@
         <p><span id="popupResult"></span></p>
     </div>
 </div>
+<script>
+    window.dots = [
+        <%
+            ArrayList<ResultBean> results = new ArrayList<>();
+            Object storage = session.getAttribute("resultStorage");
+            if (storage != null && storage instanceof ResultStorageBean) {
+                ResultStorageBean resultStorage = (ResultStorageBean) storage;
+                results = resultStorage.getResultList();
+            }
+            for (ResultBean res: results) {
+        %>
+        {
+            r: <%= res.getUserValueBean().getR() %>,
+            x: <%= res.getUserValueBean().getX() %>,
+            y: <%= res.getUserValueBean().getY() %>,
+            isHit: "<%= res.getHit() ? "Попал" : "Мимо" %>",
+            startTime: "<%= res.getStartTime() != null ? res.getStartTime() : "" %>",
+            execTime: "<%=String.format("%.4f",(res.getExecutionTime()/1_000_000.0)).replace(',', '.') %>"
+        },
+        <%
+        }
+        %>
+    ]
+</script>
 <script src="static/js/notification.js"></script>
+<script src="static/js/fillTable.js"></script>
 <script src="static/js/validation.js"></script>
 <script src="static/js/input.js"></script>
 <script src="static/js/submitForm.js"></script>

@@ -90,7 +90,7 @@
             r: <%= res.getUserValueBean().getR() %>,
             x: <%= res.getUserValueBean().getX() %>,
             y: <%= res.getUserValueBean().getY() %>,
-            isHit: "<%= res.getHit() ? "Попал" : "Мимо" %>",
+            isHit: "<%= res.getHit()%>",
             startTime: "<%= res.getStartTime() != null ? res.getStartTime() : "" %>",
             execTime: "<%=String.format("%.4f",(res.getExecutionTime()/1_000_000.0)).replace(',', '.') %>"
         },
@@ -106,5 +106,6 @@
 <script src="static/js/submitForm.js"></script>
 <script src="static/js/graph.js"></script>
 <script src="static/js/clickGraphHandler.js"></script>
+<script src="static/js/drawDots.js"></script>
 </body>
 </html>

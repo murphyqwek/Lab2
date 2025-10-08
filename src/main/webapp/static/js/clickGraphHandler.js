@@ -31,7 +31,7 @@ canvas.addEventListener('click', function (e) {
 
     document.getElementById('xvalue').value = x;
     document.getElementById('yvalue').value = y;
-    document.getElementById('form').submit();
+    document.getElementById('form').requestSubmit();
 });
 
 function getCanvasCoords(xClick, yClick, r) { 

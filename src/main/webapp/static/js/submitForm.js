@@ -1,6 +1,6 @@
 const form = document.getElementById("form");
 form.addEventListener("submit", function(event)  {
-    event.preventDefault();
+
 
     var xValue = getX();
     var yValue = getY();
@@ -10,10 +10,8 @@ form.addEventListener("submit", function(event)  {
 
     console.log(validationResult.isAllValid, validationResult.message);
 
-    if (validationResult.isAllValid) {
-        form.submit();
-    }
-    else {
+    if (!validationResult.isAllValid) {
+        event.preventDefault();
         errorNotification(validationResult.message);
     }
 });

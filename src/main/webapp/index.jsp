@@ -93,10 +93,10 @@
         <p><span id="popupResult"></span></p>
     </div>
 </div>
-<script src="static/js/notificantion.js"></script>
+<script src="static/js/notification.js"></script>
 <script src="static/js/validation.js"></script>
 <script src="static/js/input.js"></script>
-<script src="static/js/sumbitForm.js"></script>
+<script src="static/js/submitForm.js"></script>
 <script src="static/js/graph.js"></script>
 <script src="static/js/clickGraphHandler.js"></script>
 </body>

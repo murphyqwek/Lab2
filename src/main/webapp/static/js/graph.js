@@ -1,4 +1,4 @@
-var canvas = document.getElementById('graph');
+const canvas = document.getElementById('graph');
 const ctx = canvas.getContext('2d');
 
 canvas.width = 400;

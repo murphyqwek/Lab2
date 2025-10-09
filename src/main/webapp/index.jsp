@@ -90,7 +90,7 @@
             r: <%= res.getUserValueBean().getR() %>,
             x: <%= res.getUserValueBean().getX() %>,
             y: <%= res.getUserValueBean().getY() %>,
-            isHit: "<%= res.getHit()%>",
+            isHit: <%= res.getHit()%>,
             startTime: "<%= res.getStartTime() != null ? res.getStartTime() : "" %>",
             execTime: "<%=String.format("%.4f",(res.getExecutionTime()/1_000_000.0)).replace(',', '.') %>"
         },

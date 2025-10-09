@@ -17,7 +17,6 @@ function fillTableWithDots() {
     dots.forEach(dot => {
         const row = document.createElement('tr');
 
-        // Создаем ячейки для каждой колонки
         const rCell = document.createElement('td');
         rCell.textContent = dot.r;
 
@@ -28,8 +27,8 @@ function fillTableWithDots() {
         yCell.textContent = dot.y;
 
         const hitCell = document.createElement('td');
-        hitCell.textContent = dot.isHit;
-        hitCell.className = dot.isHit === 'Попал' ? 'hit' : 'miss';
+        hitCell.textContent = dot.isHit ? 'Попал' : 'Мимо';
+        hitCell.className = dot.isHit ? 'hit' : 'miss';
 
         const timeCell = document.createElement('td');
         timeCell.textContent = dot.startTime;

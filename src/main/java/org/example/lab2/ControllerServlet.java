@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/controller")
 public class ControllerServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        Validation validation = new Validation(req.getParameter("xvalue"), req.getParameter("yvalue"), req.getParameter("rvalue"));
+        Validation validation = new Validation(req);
 
         ValidationResult result = validation.validateForAllNums();
 

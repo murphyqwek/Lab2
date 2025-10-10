@@ -1,16 +1,16 @@
 package org.example.lab2.utils;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.example.lab2.beans.UserValueBean;
 
 public class Validation {
-    String xValue;
-    String yValue;
-    String rValue;
+    private HttpServletRequest request;
+    private String xValue;
+    private String yValue;
+    private String rValue;
 
-    public Validation(String xValue, String yValue, String rValue) {
-        this.xValue = xValue;
-        this.yValue = yValue;
-        this.rValue = rValue;
+    public Validation(HttpServletRequest req) {
+        this.request = req;
     }
 
     public UserValueBean getUserValueBean() {
@@ -32,7 +32,24 @@ public class Validation {
         return Double.valueOf(value);
     }
 
+    private boolean setValues() {
+        try {
+            this.xValue = request.getParameter("xvalue");
+            this.yValue = request.getParameter("yvalue");
+            this.rValue = request.getParameter("rvalue");
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public ValidationResult validateForAllNums() {
+        boolean setResult = setValues();
+
+        if(!setResult) {
+            return new ValidationResult(false, "Тело запроса содержит не все нужные параметры");
+        }
+
         ValidationResult[] validations = {
             validateValue(xValue, "X", -3, 5),
             validateValue(yValue, "Y", -3, 3),

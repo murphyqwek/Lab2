@@ -1,6 +1,8 @@
 package org.example.lab2.beans;
 
-public class UserValueBean {
+import java.io.Serializable;
+
+public class UserValueBean implements Serializable {
     private double x;
     private double y;
     private double r;

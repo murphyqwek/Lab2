@@ -1,6 +1,8 @@
 package org.example.lab2.beans;
 
-public class ResultBean {
+import java.io.Serializable;
+
+public class ResultBean implements Serializable {
     private UserValueBean userValueBean;
     private boolean hit;
     private String startTime;

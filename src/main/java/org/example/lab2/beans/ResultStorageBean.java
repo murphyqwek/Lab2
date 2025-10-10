@@ -1,8 +1,9 @@
 package org.example.lab2.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ResultStorageBean {
+public class ResultStorageBean implements Serializable {
     private ArrayList<ResultBean> resultList = new ArrayList<>();
 
     public void setResultList(ArrayList<ResultBean> resultList) {

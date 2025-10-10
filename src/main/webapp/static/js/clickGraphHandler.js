@@ -14,12 +14,8 @@ canvas.addEventListener('click', function (e) {
 
     var { x, y } = getCanvasCoords(xClick, yClick, r);
 
-    console.log(x, y);
-
     x = x.toFixed(0);
     y = y.toFixed(3);
-
-    console.log(x, y);
 
     const resultX = checkX(x.toString());
 

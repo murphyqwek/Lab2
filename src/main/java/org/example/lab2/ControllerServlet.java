@@ -28,4 +28,8 @@ public class ControllerServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/areaChecker");
         dispatcher.forward(req, res);
     }
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.sendRedirect(req.getContextPath());
+    }
 }
